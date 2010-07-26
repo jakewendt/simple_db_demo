@@ -9,4 +9,5 @@ require File.join(File.dirname(__FILE__), 'boot')
 Rails::Initializer.run do |config|
 	config.gem "aws-sdb", :lib => "aws_sdb"
 	config.time_zone = 'UTC'
+	config.frameworks -= [ :active_record ]
 end
