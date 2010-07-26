@@ -1,0 +1,13 @@
+= AWS Simple DB
+
+== Requires ..
+
+* {aws_sdb_proxy}[http://github.com/bansalakhil/aws_sdb_proxy.git] (not included).
+
+==
+
+* rake aws_sdb:start_proxy
+* script/console
+* Post.create(:title => 'My first SimpleDB post')
+* Post.find(:all)
+* rake aws_sdb:stop_proxy
