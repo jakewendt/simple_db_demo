@@ -13,3 +13,8 @@
 * Post.create(:title => 'My first SimpleDB post')
 * Post.find(:all)
 * rake aws_sdb:stop_proxy
+
+== FYI
+
+I wrote this a few years ago and don't maintain it.
+
