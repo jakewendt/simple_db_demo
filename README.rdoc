@@ -18,3 +18,52 @@
 
 I wrote this a few years ago and don't maintain it.
 
+== Examples
+
+> script/console 
+Loading development environment (Rails 2.2.2)
+>> Post.find(:all)
+=> []
+
+>> Post.create(:title => "some title", :another_attribute => "with this value")
+=> #<Post:0x229802c @attributes={"another_attribute"=>"with this value", "updated_at"=>Mon Mar 30 04:43:48 UTC 2009, "title"=>"some title", "id"=>3070023448845834759679156993834957142448442244023777094136626700066094145387725909362088146542518510890329503558677917343691483214769109031107739779099990, "created_at"=>Mon Mar 30 04:43:48 UTC 2009}, @prefix_options={}>
+>> Post.find(:all)
+=> [#<Post:0x226ba2c @attributes={"another_attribute"=>"with this value", "updated_at"=>Mon Mar 30 04:43:48 UTC 2009, "title"=>"some title", "id"=>3070023448845834759679156993834957142448442244023777094136626700066094145387725909362088146542518510890329503558677917343691483214769109031107739779099990, "created_at"=>Mon Mar 30 04:43:48 UTC 2009}, @prefix_options={}>]
+
+>> Post.create(:number => 42)
+=> #<Post:0x2267d50 @attributes={"updated_at"=>Mon Mar 30 04:45:47 UTC 2009, "number"=>"42", "id"=>6730970697940184632424274273340356421654395684903717024059482148711421411407017712064778238408507808663446246276405059758497765309615533943674564396229620, "created_at"=>Mon Mar 30 04:45:47 UTC 2009}, @prefix_options={}>
+>> Post.find(:all)
+=> [#<Post:0x2232434 @attributes={"another_attribute"=>"with this value", "updated_at"=>Mon Mar 30 04:43:48 UTC 2009, "title"=>"some title", "id"=>3070023448845834759679156993834957142448442244023777094136626700066094145387725909362088146542518510890329503558677917343691483214769109031107739779099990, "created_at"=>Mon Mar 30 04:43:48 UTC 2009}, @prefix_options={}>, #<Post:0x2232420 @attributes={"updated_at"=>Mon Mar 30 04:45:47 UTC 2009, "number"=>"42", "id"=>6730970697940184632424274273340356421654395684903717024059482148711421411407017712064778238408507808663446246276405059758497765309615533943674564396229620, "created_at"=>Mon Mar 30 04:45:47 UTC 2009}, @prefix_options={}>]
+
+>> Post.find(:all,:params => { :number => 42})
+=> [#<Post:0x21e5760 @attributes={"updated_at"=>Mon Mar 30 04:45:47 UTC 2009, "number"=>"42", "id"=>6730970697940184632424274273340356421654395684903717024059482148711421411407017712064778238408507808663446246276405059758497765309615533943674564396229620, "created_at"=>Mon Mar 30 04:45:47 UTC 2009}, @prefix_options={}>]
+
+>> Post.find(:all,:from => :query,:params => "['number' = '42']")
+=> [#<Post:0x20ae9b4 @attributes={"updated_at"=>Mon Mar 30 04:45:47 UTC 2009, "number"=>"42", "id"=>6730970697940184632424274273340356421654395684903717024059482148711421411407017712064778238408507808663446246276405059758497765309615533943674564396229620, "created_at"=>Mon Mar 30 04:45:47 UTC 2009}, @prefix_options={}>]
+
+>> Post.find(:all,:params => { :number => "42"})
+=> [#<Post:0x209b06c @attributes={"updated_at"=>Mon Mar 30 04:45:47 UTC 2009, "number"=>"42", "id"=>6730970697940184632424274273340356421654395684903717024059482148711421411407017712064778238408507808663446246276405059758497765309615533943674564396229620, "created_at"=>Mon Mar 30 04:45:47 UTC 2009}, @prefix_options={}>]
+
+>> Post.create(:title => 'My first SimpleDB post')
+=> #<Post:0x2559f18 @attributes={"updated_at"=>Mon Mar 30 05:20:19 UTC 2009, "title"=>"My first SimpleDB post", "id"=>12791631632270010776716522894134888431567736022563989299219747378974000763529893565597431979600452367979536867163497402252700359837429975624057872370738492, "created_at"=>Mon Mar 30 05:20:19 UTC 2009}, @prefix_options={}>
+
+>> Post.find(:all).length
+=> 3
+
+>> Post.find(:all, :from => :query, :params => "['title' starts-with 'My']")
+=> [#<Post:0x24d5e98 @attributes={"updated_at"=>Mon Mar 30 05:20:19 UTC 2009, "title"=>"My first SimpleDB post", "id"=>12791631632270010776716522894134888431567736022563989299219747378974000763529893565597431979600452367979536867163497402252700359837429975624057872370738492, "created_at"=>Mon Mar 30 05:20:19 UTC 2009}, @prefix_options={}>]
+
+>> Post.find(:all,:from => :query,:params => "['number' = '42']")
+=> [#<Post:0x248f128 @attributes={"updated_at"=>Mon Mar 30 04:45:47 UTC 2009, "number"=>"42", "id"=>6730970697940184632424274273340356421654395684903717024059482148711421411407017712064778238408507808663446246276405059758497765309615533943674564396229620, "created_at"=>Mon Mar 30 04:45:47 UTC 2009}, @prefix_options={}>]
+
+>> Post.find(:first)
+=> #<Post:0x24485e8 @attributes={"another_attribute"=>"with this value", "updated_at"=>Mon Mar 30 04:43:48 UTC 2009, "title"=>"some title", "id"=>3070023448845834759679156993834957142448442244023777094136626700066094145387725909362088146542518510890329503558677917343691483214769109031107739779099990, "created_at"=>Mon Mar 30 04:43:48 UTC 2009}, @prefix_options={}>
+
+>> Post.find(:all,:from => :query,:params => "['title' starts-with 'some']")
+=> [#<Post:0x2429044 @attributes={"another_attribute"=>"with this value", "updated_at"=>Mon Mar 30 04:43:48 UTC 2009, "title"=>"some title", "id"=>3070023448845834759679156993834957142448442244023777094136626700066094145387725909362088146542518510890329503558677917343691483214769109031107739779099990, "created_at"=>Mon Mar 30 04:43:48 UTC 2009}, @prefix_options={}>]
+
+>> Post.find(:all,:from => :query,:params => "['title' starts-with 'some'] union ['another_attribute' starts-with 'with']") => [#<Post:0x23e6f8c @attributes={"another_attribute"=>"with this value", "updated_at"=>Mon Mar 30 04:43:48 UTC 2009, "title"=>"some title", "id"=>3070023448845834759679156993834957142448442244023777094136626700066094145387725909362088146542518510890329503558677917343691483214769109031107739779099990, "created_at"=>Mon Mar 30 04:43:48 UTC 2009}, @prefix_options={}>]
+
+
+#		the ":from => :query" doesn't seem to be necessary as it's the default
+
