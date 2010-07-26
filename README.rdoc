@@ -2,9 +2,10 @@
 
 == Requires ..
 
-* {aws_sdb gem}[http://rubygems.org/gems/aws-sdb] (not included).
-* {aws_sdb_proxy plugin}[http://github.com/bansalakhil/aws_sdb_proxy] (not included).
+* {aws_sdb gem}[http://rubygems.org/gems/aws-sdb] (included).
+* {aws_sdb_proxy plugin}[http://github.com/bansalakhil/aws_sdb_proxy] (included).
 * AWS Simple DB access keys in config/aws_sdb_proxy.yml
+* tmp/pids directory to exist
 
 ==
 
