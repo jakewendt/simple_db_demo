@@ -4,6 +4,7 @@
 
 * {aws_sdb gem}[http://rubygems.org/gems/aws-sdb] (not included).
 * {aws_sdb_proxy plugin}[http://github.com/bansalakhil/aws_sdb_proxy] (not included).
+* AWS Simple DB access keys in config/aws_sdb_proxy.yml
 
 ==
 
