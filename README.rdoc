@@ -2,7 +2,8 @@
 
 == Requires ..
 
-* {aws_sdb_proxy}[http://github.com/bansalakhil/aws_sdb_proxy.git] (not included).
+* {aws_sdb gem}[http://rubygems.org/gems/aws-sdb] (not included).
+* {aws_sdb_proxy plugin}[http://github.com/bansalakhil/aws_sdb_proxy] (not included).
 
 ==
 
