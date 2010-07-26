@@ -1,4 +1,4 @@
-= AWS Simple DB
+= AWS Simple DB Demo
 
 == Requires ..
 
