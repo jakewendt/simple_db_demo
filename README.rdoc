@@ -6,6 +6,8 @@
 * {aws_sdb_proxy plugin}[http://github.com/bansalakhil/aws_sdb_proxy] (included).
 * AWS Simple DB access keys in config/aws_sdb_proxy.yml
 * tmp/pids directory to exist
+* ruby >= 1.8.6
+* ruby < 1.9
 
 ==
 
@@ -18,6 +20,33 @@
 == FYI
 
 I wrote this a few years ago and don't maintain it.
+
+There appears to be a significant difference between ruby 1.8.6 and 1.9.1 's parsing of the simple db response.
+
+If you run the proxy in the foreground with
+
+ rake aws_sdb:start_proxy_in_foreground
+
+and watch the log of a Post.find(:all) call ...
+
+On 1.8.6, we see something like ...
+
+ <?xml version="1.0" encoding="UTF-8"?>
+ <posts type="array">
+  <post>
+    <id type="integer">3070023448845834759679156993834957142448442244023777094136626700066094145387725909362088146542518510890329503558677917343691483214769109031107739779099990</id>
+    <title>some title</title>
+
+whereas on 1.9.1 we see ...
+
+ <?xml version="1.0" encoding="UTF-8"?>
+ <posts type="array">
+  <post>
+    <id type="integer">[&quot;3070023448845834759679156993834957142448442244023777094136626700066094145387725909362088146542518510890329503558677917343691483214769109031107739779099990&quot;]</id>
+    <title>[&quot;some title&quot;]</title>
+
+Ruby attempts to convert [&quot;3070 ... 90&quot;] into an integer which turns out to be a big fat 0.
+
 
 == Examples
 
@@ -72,3 +101,4 @@ Loading development environment (Rails 2.2.2)
 
 http://developer.amazonwebservices.com/connect/entry.jspa?externalID=1242
 
+http://developer.amazonwebservices.com/connect/entry.jspa?externalID=2542

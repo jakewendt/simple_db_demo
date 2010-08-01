@@ -5,3 +5,4 @@ db/seeds.rb
 db/schema.rb
 versions
 aws_sdb_proxy.yml
+tmp
