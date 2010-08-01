@@ -68,3 +68,7 @@ Loading development environment (Rails 2.2.2)
 
 #		the ":from => :query" doesn't seem to be necessary as it's the default
 
+== Reference
+
+http://developer.amazonwebservices.com/connect/entry.jspa?externalID=1242
+
