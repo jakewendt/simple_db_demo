@@ -55,6 +55,14 @@ ActiveResource::ResourceNotFound (Failed with 404 Not Found ):
 
 
 
+block id as an attribute on create
+add some type of attr_accessible ???
+overwrite generate_id to check if exists?(id) to more ensure not a 'update'
+ assert_difference('Post.make_a_count_method',1) do
+  Post.create(:id => 1, :title => 'A')
+  Post.create(:id => 1, :title => 'A')
+ end
+
 == Examples
 
 > script/console 

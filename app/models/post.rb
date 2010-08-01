@@ -6,6 +6,15 @@ class Post < ActiveResource::Base
 		find(:all)
 	end
 
+#      def self.attr_accessible(*attributes)
+##        write_inheritable_attribute(:attr_accessible, Set.new(attributes.map(&:to_s)) + (accessible_attributes || []))
+#        write_inheritable_attribute(:attr_accessible, Set.new(attributes.map(&:to_s)) )
+#      end
+#
+#	# A little macro like ... 
+#		attr_accessible :title, :body
+#	#	would be nice
+
 	def title
 		self.attributes['title'] || 'undefined'
 	end
