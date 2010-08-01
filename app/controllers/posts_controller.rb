@@ -26,8 +26,7 @@ class PostsController < ApplicationController
 
 	def update
 		@post = Post.find(params[:id])
-		@post.attributes.merge!(params[:post])
-		if @post.save
+		if @post.update_attributes(params[:post])
 			redirect_to(@post, :notice => 'Post was successfully updated.')
 		else
 			render :action => "edit"

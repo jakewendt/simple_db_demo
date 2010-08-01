@@ -48,6 +48,13 @@ whereas on 1.9.1 we see ...
 Ruby attempts to convert [&quot;3070 ... 90&quot;] into an integer which turns out to be a big fat 0.
 
 
+Also, after an update, sometimes the new attributes aren't visible.  Reload the page and ok.
+
+This seems to be true for a create as well.  If you create a new post, the controller redirects to show, but it is occassionally too fast and doesn't exist.
+ActiveResource::ResourceNotFound (Failed with 404 Not Found ):
+
+
+
 == Examples
 
 > script/console 

@@ -14,4 +14,9 @@ class Post < ActiveResource::Base
 		self.attributes['body'] || 'undefined'
 	end
 
+	def update_attributes(options={})
+		self.attributes.merge!(options)
+		self.save
+	end
+
 end
