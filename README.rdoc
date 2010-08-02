@@ -1,5 +1,13 @@
 = AWS Simple DB Demo
 
+In trying to make AWS' SimpleDB via ActiveResource behave like ActiveRecord,
+I have found several insecure situations so I won't be using it 'til 
+they have been figured out.
+
+The biggest problem that I have found is the inability to protect attributes from
+mass assignment.  I thought that I had it resolved by pulling in some
+ActiveRecord code, but it only worked on updates.
+
 == Requires ..
 
 * {aws_sdb gem}[http://rubygems.org/gems/aws-sdb] (included).
