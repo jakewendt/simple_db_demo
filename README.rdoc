@@ -8,6 +8,13 @@ The biggest problem that I have found is the inability to protect attributes fro
 mass assignment.  I thought that I had it resolved by pulling in some
 ActiveRecord code, but it only worked on updates.
 
+I may look into using http://github.com/hungryblank/aws_sdb_bare to see if it is 
+any different.
+
+I may also try to implement some form of save_with_attribute_filter
+to remove any undesired attributes.  I'm not sure how to deal with 
+partially blocking id.
+
 == Requires ..
 
 * {aws_sdb gem}[http://rubygems.org/gems/aws-sdb] (included).
